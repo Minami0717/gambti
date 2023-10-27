@@ -19,7 +19,8 @@ import java.util.List;
 public class Crawling {
     private final ChromeOptions options;
     public Crawling() {
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe"); // 크롬 드라이버 셋팅 (드라이버 설치한 경로 입력)
+        //System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe"); // 크롬 드라이버 셋팅 (드라이버 설치한 경로 입력)
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
         options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking"); // 팝업안띄움
         options.addArguments("headless"); // 브라우저 안띄움
