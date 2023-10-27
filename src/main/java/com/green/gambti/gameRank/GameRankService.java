@@ -19,6 +19,6 @@ public class GameRankService {
             case "mobile" -> query = "모바일게임랭킹";
             default -> throw new Exception("파라미터값 오류");
         }
-        return c.getGameRanking(query);
+        return c.getGameRankingJsoup(query);
     }
 }

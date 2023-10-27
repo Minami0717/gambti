@@ -10,4 +10,5 @@ public class Game {
     private String title;
     private String genre;
     private String company;
+    private String img;
 }
