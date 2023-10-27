@@ -34,14 +34,14 @@ public class Crawling {
         String url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bkJB&pkid=3001&qvt=0&query=" + query;
         driver.get(url); // 브라우저에서 url로 이동한다.
 
-        if (url.contains("모바일")) {
+        if (query.equals("모바일게임랭킹")) {
             String text = "최고매출순";
             webDriverWait.until(
                     ExpectedConditions.presenceOfElementLocated(By.linkText(text))
             );
 
             WebElement menu = driver.findElement(By.linkText(text)); // findElement 는 해당되는 선택자의 첫번째 요소만 가져온다
-            menu.click();
+            menu.click(); // 최고매출순 클릭
         }
 
         String selector = ".list_info";
@@ -74,7 +74,7 @@ public class Crawling {
             next.click();
         }
 
-        driver.close();	// 탭 닫기
+        //driver.close();	// 탭 닫기
         driver.quit();	// 브라우저 닫기
 
         return gameList;
