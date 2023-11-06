@@ -11,6 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GameRankService {
     private final Crawling c;
+
     public List<Game> getGameRanking(String platform) throws Exception {
         String query;
         switch (platform) {

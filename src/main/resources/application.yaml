@@ -22,6 +22,9 @@ springdoc:
   swagger-ui:
     path: /swagger.html
 
+img:
+  dir: http://localhost:8080/img
+
 ---
 spring:
   config:
@@ -31,3 +34,6 @@ spring:
     url: jdbc:mariadb://${HOST}:${PORT}/${DATABASE_NAME}
     username: ${USER_NAME}
     password: ${PASSWORD}
+
+img:
+  dir: https://port-0-gambti-12fhqa2llo8qkrut.sel5.cloudtype.app/img
