@@ -5,6 +5,7 @@ import com.green.gambti.repository.*;
 import com.green.gambti.result.model.RecGameVo;
 import com.green.gambti.result.model.ResultVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ public class ResultService {
     private final RecGameRepository gameRep;
     private final GameGenreRepository gameGenreRep;
     private final GamePlatformRepository gamePlatformRep;
+
+    @Value("${img.dir}")
+    private String imgDir;
 
     public ResultVo getResult(String mbti) throws Exception {
         Result r = rep.findByMbti(mbti);
@@ -33,7 +37,7 @@ public class ResultService {
             Game gm = g.getGame();
             RecGameVo vo = RecGameVo.builder()
                     .name(gm.getName())
-                    .img(gm.getImg())
+                    .img(String.format("%s/%s", imgDir, gm.getImg()))
                     .build();
 
             List<GameGenre> genreList = gameGenreRep.findAllByGame(gm);
@@ -51,7 +55,7 @@ public class ResultService {
 
         return ResultVo.builder()
                 .mbti(r.getMbti())
-                .img(r.getImg())
+                .img(String.format("%s/%s", imgDir, r.getImg()))
                 .description(r.getDescription())
                 .analysis(r.getAnalysis())
                 .recGenre(recGenre)
