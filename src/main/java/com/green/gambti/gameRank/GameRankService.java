@@ -1,7 +1,7 @@
 package com.green.gambti.gameRank;
 
 import com.green.gambti.crawling.Crawling;
-import com.green.gambti.gameRank.model.Game;
+import com.green.gambti.gameRank.model.GameVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class GameRankService {
     private final Crawling c;
 
-    public List<Game> getGameRanking(String platform) throws Exception {
+    public List<GameVo> getGameRanking(String platform) throws Exception {
         String query;
         switch (platform) {
             case "pc" -> query = "PC방게임랭킹";

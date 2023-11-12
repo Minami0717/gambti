@@ -1,23 +1,14 @@
 package com.green.gambti.crawling;
 
-import com.green.gambti.gameRank.model.Game;
-import lombok.RequiredArgsConstructor;
+import com.green.gambti.gameRank.model.GameVo;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,18 +76,18 @@ public class Crawling {
 //
 //        return gameList;
 //    }
-    public List<Game> getGameRankingJsoup(String query) throws IOException {
+    public List<GameVo> getGameRankingJsoup(String query) throws IOException {
         String url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bkJB&pkid=3001&qvt=0&query=" + query;
         Connection con = Jsoup.connect(url);
 
         Document doc = con.get();
         Elements infoBox = doc.select(".info_box");
 
-        List<Game> gameList = new ArrayList<>();
+        List<GameVo> gameList = new ArrayList<>();
         int rank = 1;
 
         for (Element box : infoBox) {
-            gameList.add(Game.builder()
+            gameList.add(GameVo.builder()
                     .rank(rank++)
                     .title(box.select(".title").text())
                     .genre(box.select(".cate_info .text").first().text())

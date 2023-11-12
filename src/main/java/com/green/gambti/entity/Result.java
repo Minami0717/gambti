@@ -1,21 +1,30 @@
 package com.green.gambti.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 
 @Entity
-@Data
+@Getter
 public class Result {
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     @Column(updatable = false, nullable = false, columnDefinition = "BIGINT UNSIGNED")
     private Long resultId;
 
-    @Column(nullable = false, columnDefinition = "CHAR(4)")
+    @Column(nullable = false, columnDefinition = "CHAR(4)", unique = true)
     private String mbti;
 
     @Column(nullable = false, length = 50)
     private String title;
+
+    @Column(nullable = false, length = 100)
+    private String img;
+
+    @Column(nullable = false, length = 100)
+    private String comment;
+
+    @Column(nullable = false)
+    private String description;
 
     @Column(nullable = false)
     private String analysis;

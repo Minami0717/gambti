@@ -5,15 +5,17 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Game {
+public class GameGenre {
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     @Column(updatable = false, nullable = false, columnDefinition = "BIGINT UNSIGNED")
-    private Long gameId;
+    private Long gameGenreId;
 
-    @Column(nullable = false, length = 50, unique = true)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "game_id", nullable = false)
+    private Game game;
 
-    @Column(nullable = false, length = 100)
-    private String img;
+    @ManyToOne
+    @JoinColumn(name = "genre_id", nullable = false)
+    private Genre genre;
 }

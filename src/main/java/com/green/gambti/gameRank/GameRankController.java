@@ -1,6 +1,6 @@
 package com.green.gambti.gameRank;
 
-import com.green.gambti.gameRank.model.Game;
+import com.green.gambti.gameRank.model.GameVo;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class GameRankController {
     private final GameRankService service;
 
     @GetMapping
-    public List<Game> getGameRanking(
+    public List<GameVo> getGameRanking(
             @Parameter(description = "pc | console | mobile", example = "pc") String platform) throws Exception {
         return service.getGameRanking(platform);
     }

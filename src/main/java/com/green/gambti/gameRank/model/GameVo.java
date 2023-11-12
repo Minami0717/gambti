@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Game {
+public class GameVo {
     private int rank;
     private String title;
     private String genre;
