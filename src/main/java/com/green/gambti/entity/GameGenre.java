@@ -5,6 +5,9 @@ import lombok.Getter;
 
 @Entity
 @Getter
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"game_id","genre_id"})
+})
 public class GameGenre {
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment

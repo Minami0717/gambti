@@ -3,6 +3,8 @@ package com.green.gambti.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.List;
+
 @Entity
 @Getter
 public class Result {
@@ -28,4 +30,10 @@ public class Result {
 
     @Column(nullable = false)
     private String analysis;
+
+    @OneToMany(mappedBy = "result")
+    private List<RecGenre> recGenres;
+
+    @OneToMany(mappedBy = "result")
+    private List<RecGame> recGames;
 }

@@ -1,10 +1,10 @@
 package com.green.gambti.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 
 @Entity
-@Data
+@Getter
 public class Genre {
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment

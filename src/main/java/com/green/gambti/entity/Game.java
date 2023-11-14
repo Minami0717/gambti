@@ -1,7 +1,10 @@
 package com.green.gambti.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,4 +19,12 @@ public class Game {
 
     @Column(nullable = false, length = 100)
     private String img;
+
+    @OneToMany(mappedBy = "game")
+    @JsonIgnore
+    private List<GamePlatform> platforms;
+
+    @OneToMany(mappedBy = "game")
+    @JsonIgnore
+    private List<GameGenre> genres;
 }

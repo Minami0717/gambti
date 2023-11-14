@@ -1,5 +1,6 @@
 package com.green.gambti.result.model;
 
+import com.green.gambti.entity.Genre;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,6 +13,6 @@ public class ResultVo {
     private String img;
     private String description;
     private String analysis;
-    private List<String> recGenre;
+    private List<Genre> recGenre;
     private List<RecGameVo> recGame;
 }
