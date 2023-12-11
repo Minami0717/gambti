@@ -22,7 +22,7 @@ public class QuestionService {
             throw new Exception("잘못된 파라미터 값");
         }
         Question q = opt.get();
-        q.setImg(String.format("%s/%s", imgDir, q.getImg()));
+        q.setImg(String.format("%s/question/%s", imgDir, q.getImg()));
 
         return q;
     }

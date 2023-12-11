@@ -23,7 +23,7 @@ public class ResultService {
 
         return ResultVo.builder()
                 .mbti(r.getMbti())
-                .img(String.format("%s/%s", imgDir, r.getImg()))
+                .img(String.format("%s/mbti/%s", imgDir, r.getImg()))
                 .description(r.getDescription())
                 .analysis(r.getAnalysis())
                 .recGenre(r.getRecGenres().stream().map(RecGenre::getGenre).toList())
@@ -32,7 +32,7 @@ public class ResultService {
                         .name(g.getGame().getName())
                         .platform(g.getGame().getPlatforms().stream().map(p -> p.getPlatform().getName()).toList())
                         .genre(g.getGame().getGenres().stream().map(gen -> gen.getGenre().getName()).toList())
-                        .img(String.format("%s/%s", imgDir, g.getGame().getImg()))
+                        .img(String.format("%s/game/%s", imgDir, g.getGame().getImg()))
                         .build()).toList())
                 .build();
     }

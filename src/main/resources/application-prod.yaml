@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${HOST}:${PORT}/${DATABASE_NAME}
+    username: ${USER_NAME}
+    password: ${PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# swagger
+springdoc:
+  swagger-ui:
+    path: /swagger.html
+
+img:
+  dir: https://port-0-gambti-12fhqa2llo8qkrut.sel5.cloudtype.app/img
