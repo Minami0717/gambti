@@ -1,8 +1,8 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${HOST}:${PORT}/${DATABASE_NAME}
-    username: ${USER_NAME}
+    url: jdbc:mariadb://${MARIA_HOST}:${MARIA_PORT}/${DATABASE_NAME}
+    username: ${USERNAME}
     password: ${PASSWORD}
   jpa:
     hibernate:
@@ -18,4 +18,7 @@ springdoc:
     path: /swagger.html
 
 img:
-  dir: https://port-0-gambti-12fhqa2llo8qkrut.sel5.cloudtype.app/img
+  dir: http://gambti.ap-northeast-2.elasticbeanstalk.com/img
+
+server:
+  port: 5000
